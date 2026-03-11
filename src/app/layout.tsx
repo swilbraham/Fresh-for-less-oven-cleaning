@@ -106,6 +106,13 @@ export default function RootLayout({
           data-tenant-id="cmmlqnyuy0000ky04u1rgt7kb"
           strategy="afterInteractive"
         />
+        <Script id="cleanerbot-listener" strategy="afterInteractive">
+          {`window.addEventListener("message", function(e) {
+            if (e.data && e.data.type === "cleanerbot:quote-submitted") {
+              setTimeout(function() { window.history.back(); }, 3500);
+            }
+          });`}
+        </Script>
       </body>
     </html>
   );
