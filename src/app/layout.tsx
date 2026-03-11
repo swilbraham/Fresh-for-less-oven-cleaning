@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -100,6 +101,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <Script
+          src="https://cleanerbot-kappa.vercel.app/embed.js"
+          data-tenant-id="cmmlqnyuy0000ky04u1rgt7kb"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

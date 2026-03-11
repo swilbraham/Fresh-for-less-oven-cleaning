@@ -452,11 +452,12 @@ export default function SpinPage() {
                               </div>
                             </div>
 
-                            <div>
-                              <label htmlFor="spin-email" className="mb-1.5 block text-sm font-medium text-slate-300">
-                                Email Address
-                              </label>
-                              <input
+                            <div className="grid gap-4 sm:grid-cols-2">
+                              <div>
+                                <label htmlFor="spin-email" className="mb-1.5 block text-sm font-medium text-slate-300">
+                                  Email Address
+                                </label>
+                                <input
                                 type="email"
                                 id="spin-email"
                                 name="email"
@@ -464,6 +465,20 @@ export default function SpinPage() {
                                 className="w-full rounded-lg border border-slate-600 bg-slate-800/60 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none"
                                 placeholder="jane@example.com"
                               />
+                              </div>
+                              <div>
+                                <label htmlFor="spin-postcode" className="mb-1.5 block text-sm font-medium text-slate-300">
+                                  Postcode
+                                </label>
+                                <input
+                                  type="text"
+                                  id="spin-postcode"
+                                  name="postcode"
+                                  required
+                                  className="w-full rounded-lg border border-slate-600 bg-slate-800/60 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none"
+                                  placeholder="SW1A 1AA"
+                                />
+                              </div>
                             </div>
 
                             <button
