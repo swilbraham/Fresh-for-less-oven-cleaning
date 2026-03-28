@@ -691,6 +691,51 @@ export default function ServicePage({ slug }: { slug: string }) {
 
   const service = servicesData[slug];
 
+  // Service + FAQ schema for SEO
+  const serviceSchema = service ? {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.description,
+    provider: {
+      "@type": "LocalBusiness",
+      name: "Fresh For Less Carpet Cleaning",
+      telephone: "0330 043 4811",
+      url: "https://www.freshforlesscarpetcleaning.co.uk",
+    },
+    url: `https://www.freshforlesscarpetcleaning.co.uk/services/${slug}`,
+    areaServed: [
+      { "@type": "City", name: "Liverpool" },
+      { "@type": "City", name: "Chester" },
+      { "@type": "City", name: "Warrington" },
+      { "@type": "AdministrativeArea", name: "Wirral" },
+      { "@type": "AdministrativeArea", name: "North Wales" },
+    ],
+  } : null;
+
+  const faqSchema = service ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: service.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  } : null;
+
+  const breadcrumbSchema = service ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.freshforlesscarpetcleaning.co.uk/" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.freshforlesscarpetcleaning.co.uk/services/" },
+      { "@type": "ListItem", position: 3, name: service.title, item: `https://www.freshforlesscarpetcleaning.co.uk/services/${slug}` },
+    ],
+  } : null;
+
   if (!service) {
     return (
       <>
@@ -712,6 +757,24 @@ export default function ServicePage({ slug }: { slug: string }) {
   return (
     <>
       <Navbar onQuoteClick={openQuote} />
+      {serviceSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+      )}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      {breadcrumbSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      )}
 
       <main>
         {/* Hero Section */}

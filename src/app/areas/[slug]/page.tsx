@@ -16,15 +16,20 @@ export function generateMetadata({
   const area = getAreaBySlug(params.slug);
   const name = area?.name ?? "Your Area";
 
+  const slug = params.slug;
   return {
     title: `Carpet Cleaning in ${name} | Fresh For Less`,
     description: `Professional carpet and upholstery cleaning in ${name}. Affordable prices, eco-friendly products, and outstanding results. Free no-obligation quotes. Call 0330 043 4811.`,
+    alternates: {
+      canonical: `https://www.freshforlesscarpetcleaning.co.uk/areas/${slug}`,
+    },
     openGraph: {
       title: `Carpet Cleaning in ${name} | Fresh For Less`,
       description: `Professional carpet and upholstery cleaning in ${name}. Affordable prices, eco-friendly products. Free quotes available.`,
       type: "website",
       locale: "en_GB",
       siteName: "Fresh For Less Carpet Cleaning",
+      url: `https://www.freshforlesscarpetcleaning.co.uk/areas/${slug}`,
     },
   };
 }

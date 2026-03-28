@@ -137,9 +137,67 @@ export default function AreaPage({ slug }: { slug: string }) {
     .map((s) => areas.find((a) => a.slug === s))
     .filter(Boolean) as typeof areas;
 
+  // LocalBusiness + Service schema for SEO
+  const areaSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    additionalType: "https://schema.org/ProfessionalService",
+    name: "Fresh For Less Carpet Cleaning",
+    description: `Professional carpet and upholstery cleaning in ${area.name}. Affordable prices, eco-friendly products, 100% satisfaction guarantee.`,
+    telephone: "0330 043 4811",
+    email: "info@freshforlesscarpetcleaning.co.uk",
+    url: `https://www.freshforlesscarpetcleaning.co.uk/areas/${area.slug}`,
+    priceRange: "£",
+    areaServed: {
+      "@type": "City",
+      name: area.name,
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "07:00",
+      closes: "19:00",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      bestRating: "5",
+      ratingCount: "2000",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `Cleaning Services in ${area.name}`,
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: `Carpet Cleaning in ${area.name}` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: `Upholstery Cleaning in ${area.name}` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: `Stain Removal in ${area.name}` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: `Hard Floor Cleaning in ${area.name}` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: `Commercial Cleaning in ${area.name}` } },
+      ],
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.freshforlesscarpetcleaning.co.uk/" },
+      { "@type": "ListItem", position: 2, name: "Areas", item: "https://www.freshforlesscarpetcleaning.co.uk/areas/" },
+      { "@type": "ListItem", position: 3, name: area.name, item: `https://www.freshforlesscarpetcleaning.co.uk/areas/${area.slug}` },
+    ],
+  };
+
   return (
     <>
       <Navbar onQuoteClick={openQuote} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(areaSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <main>
         {/* ── Hero ─────────────────────────────────────── */}
         <section className="relative overflow-hidden bg-slate-950 pt-24 pb-16 lg:pt-32 lg:pb-24">

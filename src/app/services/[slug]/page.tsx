@@ -76,12 +76,16 @@ export async function generateMetadata({
   return {
     title: service.metaTitle,
     description: service.metaDescription,
+    alternates: {
+      canonical: `https://www.freshforlesscarpetcleaning.co.uk/services/${service.slug}`,
+    },
     openGraph: {
       type: "website",
       locale: "en_GB",
       siteName: "Fresh For Less Carpet Cleaning",
       title: service.metaTitle,
       description: service.metaDescription,
+      url: `https://www.freshforlesscarpetcleaning.co.uk/services/${service.slug}`,
     },
   };
 }

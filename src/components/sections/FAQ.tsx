@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "What areas do you cover?",
     answer:
-      "We cover Birmingham and surrounding areas including Solihull, Sutton Coldfield, Erdington, and more. Contact us to check if we serve your area.",
+      "We cover the Wirral, Liverpool, Chester, Warrington, Runcorn, and North Wales. Check our area pages for a full list or contact us to check if we serve your location.",
   },
   {
     question: "How do I pay?",
@@ -46,6 +46,19 @@ const faqs = [
       "We accept card payments, bank transfers, and Klarna (buy now, pay later). You can pay a \u00a320 booking fee to secure your slot, which is deducted from the final amount.",
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -56,6 +69,10 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="relative bg-white py-24 sm:py-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <AnimatedSection className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-1.5 text-sm font-medium text-primary-700 ring-1 ring-primary-200/60">
