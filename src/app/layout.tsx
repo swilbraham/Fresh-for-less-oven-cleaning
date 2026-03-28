@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://freshforless.co.uk"),
+  metadataBase: new URL("https://www.freshforlesscarpetcleaning.co.uk"),
   title: "Fresh For Less Carpet Cleaning | Professional Carpet & Upholstery Cleaning",
   description:
     "Professional carpet and upholstery cleaning services that deliver spotless results at prices you'll love. Trusted by 2,000+ families and businesses across the UK.",
@@ -53,8 +53,9 @@ const jsonLd = {
   description:
     "Professional carpet and upholstery cleaning services delivering spotless results at affordable prices.",
   telephone: "0330 043 4811",
-  url: "https://freshforless.co.uk",
-  priceRange: "££",
+  email: "info@freshforlesscarpetcleaning.co.uk",
+  url: "https://www.freshforlesscarpetcleaning.co.uk",
+  priceRange: "£",
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: [

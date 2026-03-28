@@ -5,9 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Services", href: "#services" },
+  { label: "Pricing", href: "#pricing" },
   { label: "How It Works", href: "#process" },
   { label: "Reviews", href: "#testimonials" },
-  { label: "About", href: "#about" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Pay Online", href: "/pay/" },
 ];
 
 export default function Navbar({ onQuoteClick }: { onQuoteClick: () => void }) {
