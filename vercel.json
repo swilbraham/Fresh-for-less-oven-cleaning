@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/create-checkout-session.js": {
+      "runtime": "@vercel/node@3"
+    }
+  }
+}
