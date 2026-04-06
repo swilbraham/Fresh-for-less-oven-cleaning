@@ -1,6 +1,6 @@
-import Stripe from 'stripe';
+const Stripe = require('stripe');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -24,6 +24,8 @@ export default async function handler(req, res) {
       ? 'Booking Fee (deducted from final payment)'
       : 'Carpet Cleaning Payment';
 
+  const origin = req.headers.origin || 'https://www.freshforlesscarpetcleaning.co.uk';
+
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card', 'klarna'],
@@ -45,8 +47,8 @@ export default async function handler(req, res) {
         address: address.trim(),
         payment_type: paymentType,
       },
-      success_url: `${req.headers.origin || 'https://www.freshforless.com'}/pay/success.html?type=${paymentType}`,
-      cancel_url: `${req.headers.origin || 'https://www.freshforless.com'}/pay/`,
+      success_url: `${origin}/pay/success.html?type=${paymentType}`,
+      cancel_url: `${origin}/pay/`,
     });
 
     return res.status(200).json({ url: session.url });
@@ -54,4 +56,4 @@ export default async function handler(req, res) {
     console.error('Stripe error:', err.message);
     return res.status(500).json({ error: 'Failed to create checkout session' });
   }
-}
+};
