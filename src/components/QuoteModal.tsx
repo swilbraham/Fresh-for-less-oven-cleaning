@@ -158,27 +158,38 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                       placeholder="jane@example.com"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-slate-700">
-                      Service Needed
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      required
-                      className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none"
-                    >
-                      <option value="">Select a service...</option>
-                      <option>Single Oven</option>
-                      <option>Double Oven</option>
-                      <option>Range Cooker / Aga</option>
-                      <option>Hob &amp; Extractor</option>
-                      <option>Microwave</option>
-                      <option>BBQ</option>
-                      <option>Commercial Kitchen</option>
-                      <option>End-of-Tenancy Clean</option>
-                    </select>
-                  </div>
+                  <fieldset>
+                    <legend className="mb-1.5 block text-sm font-medium text-slate-700">
+                      Services Needed{" "}
+                      <span className="font-normal text-slate-500">(tick all that apply)</span>
+                    </legend>
+                    <div className="grid grid-cols-2 gap-2">
+                      {[
+                        "Single Oven",
+                        "Double Oven",
+                        "Range Cooker / Aga",
+                        "Hob",
+                        "Extractor Hood",
+                        "Microwave",
+                        "BBQ",
+                        "Commercial Kitchen",
+                        "End-of-Tenancy Clean",
+                      ].map((service) => (
+                        <label
+                          key={service}
+                          className="flex cursor-pointer items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 transition-colors hover:border-primary-400 hover:bg-primary-50/40 has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50 has-[:checked]:text-primary-900"
+                        >
+                          <input
+                            type="checkbox"
+                            name="services"
+                            value={service}
+                            className="h-4 w-4 flex-shrink-0 rounded border-slate-300 text-primary-600 focus:ring-2 focus:ring-primary-500/40"
+                          />
+                          <span>{service}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
                   <div>
                     <label htmlFor="details" className="mb-1.5 block text-sm font-medium text-slate-700">
                       Tell Us More
@@ -188,7 +199,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                       name="details"
                       rows={3}
                       className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none resize-none"
-                      placeholder="Make/model of oven, condition, any extras (hob, extractor)..."
+                      placeholder="Make/model of oven, condition, anything else we should know..."
                     />
                   </div>
                   <button
