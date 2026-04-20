@@ -8,49 +8,49 @@ const testimonials = [
   {
     name: "Sarah M.",
     role: "Homeowner",
-    location: "3 bedrooms cleaned",
+    location: "Single oven & hob",
     quote:
-      "I was embarrassed to have people over because of our stained carpets. Fresh For Less completely transformed them — they look like the day we moved in. And the price? Half what the other company quoted us.",
+      "I was embarrassed by the state of our oven — years of baked-on grease I couldn't shift. Fresh For Less made it look brand new in 90 minutes. And the price was half what the big franchise quoted.",
     rating: 5,
   },
   {
     name: "Jennifer T.",
     role: "Mum of 3",
-    location: "Full home + stairs",
+    location: "Range cooker clean",
     quote:
-      "With three kids and two dogs, our carpets take a beating. The team was so professional and thorough. My allergies have actually improved since the cleaning. I'll never go anywhere else.",
+      "With three kids and a husband who loves a roast, our range cooker takes a beating. The team was so professional, no fumes, no mess, and the door glass is crystal clear again. I'll never use anyone else.",
     rating: 5,
   },
   {
     name: "David R.",
-    role: "Office Manager",
-    location: "2,500 sq ft office",
+    role: "Pub Landlord",
+    location: "Commercial kitchen",
     quote:
-      "We needed our office carpets cleaned on a tight weekend schedule. They arrived exactly when promised and the results were outstanding. Our employees noticed the difference immediately on Monday.",
+      "We needed our pub kitchen ovens deep cleaned overnight to pass our hygiene inspection. They arrived exactly when promised and the results were outstanding. Got our 5-star rating back.",
     rating: 5,
   },
   {
     name: "Michelle K.",
     role: "Homeowner",
-    location: "Living room + dining room",
+    location: "Double oven & extractor",
     quote:
-      "I tried everything to get the red wine stain out of our light carpet. I'd given up. Fresh For Less got it out completely — I couldn't believe it. Truly amazing work.",
+      "I tried every product Sainsbury's sells to clean our oven. Nothing worked. Fresh For Less got it sparkling — even the inside of the door glass. I genuinely couldn't believe my eyes.",
     rating: 5,
   },
   {
     name: "Lisa W.",
-    role: "Estate Agent",
-    location: "Pre-sale cleaning",
+    role: "Letting Agent",
+    location: "End-of-tenancy clean",
     quote:
-      "I recommend Fresh For Less to all my clients before listing their homes. Clean carpets make a huge impression on buyers, and they always deliver at a price that makes sense.",
+      "I book Fresh For Less for every end-of-tenancy oven we manage. Tenants get their deposit back, landlords are happy, and the price always makes sense. Brilliant service.",
     rating: 5,
   },
   {
     name: "Robert J.",
     role: "Restaurant Owner",
-    location: "Commercial cleaning",
+    location: "Monthly maintenance",
     quote:
-      "They handle our restaurant carpet cleaning monthly. Always on time, always excellent, and they work around our busy schedule. The best value in town, hands down.",
+      "They handle our restaurant ovens and extractors every month. Always on time, always thorough, and they work around our service hours. Best value in town, hands down.",
     rating: 5,
   },
 ];

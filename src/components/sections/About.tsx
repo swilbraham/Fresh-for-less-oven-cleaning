@@ -33,7 +33,7 @@ const credentials = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
       </svg>
     ),
-    label: "Eco-Friendly Products",
+    label: "Non-Toxic Products",
   },
 ];
 
@@ -49,7 +49,7 @@ export default function About() {
               <div className="mb-6 overflow-hidden rounded-2xl shadow-lg">
                 <img
                   src="/images/about-cleaner.jpg"
-                  alt="Professional carpet cleaning in action"
+                  alt="Professional oven cleaner at work"
                   className="h-56 w-full object-cover sm:h-64"
                 />
               </div>
@@ -110,20 +110,20 @@ export default function About() {
               About Us
             </span>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              A Local Team That Cares About Your Home
+              A Local Team That Cares About Your Kitchen
             </h2>
             <p className="mt-6 text-base leading-relaxed text-slate-600">
-              Fresh For Less was founded on a simple belief: everyone deserves clean, healthy carpets — and no one should have to pay a fortune for it. We&apos;re a locally owned and operated team of certified professionals who treat every home like our own.
+              Fresh For Less was founded on a simple belief: every kitchen deserves a clean, safe, well-maintained oven — and no one should have to pay a fortune for it. We&apos;re a locally owned and operated team of trained oven cleaning specialists who treat every home like our own.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
-              With over a decade of experience and thousands of satisfied customers, we&apos;ve built our reputation on honest pricing, reliable service, and results that speak for themselves. Our technicians are background-checked, fully insured, and trained in the latest cleaning technologies.
+              With over a decade of experience and thousands of satisfied customers, we&apos;ve built our reputation on honest pricing, reliable service, and results that speak for themselves. Our technicians are fully insured, DBS checked, and trained on every major oven, range and Aga brand.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               {[
                 "Family-owned & operated",
-                "Eco-friendly solutions",
-                "Background-checked crew",
-                "Same-week scheduling",
+                "Non-toxic, fume-free products",
+                "DBS checked technicians",
+                "Same-week appointments",
               ].map((item) => (
                 <span
                   key={item}

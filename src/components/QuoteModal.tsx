@@ -32,6 +32,8 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
     }
   };
 
+
+
   const handleClose = () => {
     setSubmitted(false);
     onClose();
@@ -77,13 +79,13 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
               <div className="flex items-center gap-3">
                 <img
                   src="/images/logo.png"
-                  alt="Fresh For Less"
+                  alt="Fresh For Less Oven Cleaning"
                   className="h-14 w-14 rounded-full object-contain"
                 />
                 <h3 className="text-2xl font-bold">Get Your Free Quote</h3>
               </div>
               <p className="mt-2 text-sm text-primary-200">
-                Tell us about your space and we&apos;ll get back to you within 2 hours.
+                Tell us about your oven and we&apos;ll get back to you within 2 hours.
               </p>
             </div>
 
@@ -113,7 +115,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <input type="hidden" name="_subject" value="New Quote Request — Fresh For Less" />
+                  <input type="hidden" name="_subject" value="New Quote Request — Fresh For Less Oven Cleaning" />
                   <input type="hidden" name="_template" value="table" />
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
@@ -167,12 +169,14 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                       className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none"
                     >
                       <option value="">Select a service...</option>
-                      <option>Carpet Cleaning</option>
-                      <option>Upholstery Cleaning</option>
-                      <option>Stain Removal</option>
-                      <option>Commercial Cleaning</option>
-                      <option>Pet Odour Treatment</option>
-                      <option>Full Home Package</option>
+                      <option>Single Oven</option>
+                      <option>Double Oven</option>
+                      <option>Range Cooker / Aga</option>
+                      <option>Hob &amp; Extractor</option>
+                      <option>Microwave</option>
+                      <option>BBQ</option>
+                      <option>Commercial Kitchen</option>
+                      <option>End-of-Tenancy Clean</option>
                     </select>
                   </div>
                   <div>
@@ -184,7 +188,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                       name="details"
                       rows={3}
                       className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none resize-none"
-                      placeholder="Number of rooms, type of stains, any special concerns..."
+                      placeholder="Make/model of oven, condition, any extras (hob, extractor)..."
                     />
                   </div>
                   <button

@@ -6,44 +6,44 @@ import AnimatedSection from "../AnimatedSection";
 
 const faqs = [
   {
-    question: "How long does carpet cleaning take?",
+    question: "How long does an oven clean take?",
     answer:
-      "Most rooms take 20-30 minutes. A typical 3-bedroom home is done in about 1.5-2 hours.",
+      "A typical single oven takes 60–90 minutes. A double oven takes around 2 hours, and a full range cooker around 2.5–3 hours. We work efficiently and tidy up after ourselves.",
   },
   {
-    question: "Is it safe for children and pets?",
+    question: "Are your products safe for children and pets?",
     answer:
-      "Absolutely. We use eco-friendly, non-toxic cleaning solutions that are completely safe for your family and pets. We recommend keeping pets off the carpet until it\u2019s dry.",
+      "Yes — 100%. We only use non-caustic, fume-free, biodegradable products. There's no harsh chemical smell, no need to leave the house, and your oven is completely safe to use the moment we finish.",
   },
   {
-    question: "How long until my carpets are dry?",
+    question: "Can I use my oven straight after the clean?",
     answer:
-      "Typically 4-6 hours, depending on ventilation and carpet type. We use powerful extraction that removes 95% of moisture.",
+      "Absolutely. Unlike DIY oven sprays which leave behind residue, our products are food-safe and rinsed thoroughly. You can preheat and start cooking the moment we leave.",
   },
   {
-    question: "What if the stains don\u2019t come out?",
+    question: "What if my oven is really bad?",
     answer:
-      "We have a very high success rate with stain removal. If we can\u2019t remove a stain, we\u2019ll let you know upfront and you won\u2019t be charged for that area.",
+      "We've seen it all — 20-year-old grease, melted plastic, you name it. Our heated dip tank tackles even the most neglected racks and trays, and our cavity products lift baked-on carbon other cleaners can't touch.",
   },
   {
-    question: "Do I need to move furniture?",
+    question: "Do you clean the inside of the oven door glass?",
     answer:
-      "We ask that you move small items and breakables. We can work around larger furniture and will move what we can safely.",
+      "Yes — we partially dismantle the door so we can reach between the glass panels and restore them to crystal clear. This is included as standard on every clean.",
   },
   {
     question: "How much does it cost?",
     answer:
-      "Our prices start from \u00a339 for a single room. Check our pricing section for full details, or request a free no-obligation quote.",
+      "Our prices start from £45 for a single oven. Check our pricing section for full details, or request a free no-obligation quote tailored to your appliances.",
   },
   {
     question: "What areas do you cover?",
     answer:
-      "We cover the Wirral, Liverpool, Chester, Warrington, Runcorn, and North Wales. Check our area pages for a full list or contact us to check if we serve your location.",
+      "We cover most of the UK including the Wirral, Liverpool, Chester, Warrington, Runcorn and surrounding areas. Get in touch to check if we serve your postcode.",
   },
   {
     question: "How do I pay?",
     answer:
-      "We accept card payments, bank transfers, and Klarna (buy now, pay later). You can pay a \u00a320 booking fee to secure your slot, which is deducted from the final amount.",
+      "We accept card payments, cash and bank transfer on the day. No deposit required — you only pay once you're happy with the finished result.",
   },
 ];
 
@@ -95,7 +95,7 @@ export default function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Everything you need to know about our carpet cleaning services.
+            Everything you need to know about our oven cleaning services.
             Can&apos;t find your answer? Get in touch and we&apos;ll be happy to
             help.
           </p>

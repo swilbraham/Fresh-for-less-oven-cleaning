@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,20 +9,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.freshforlesscarpetcleaning.co.uk"),
-  title: "Fresh For Less Carpet Cleaning | Professional Carpet & Upholstery Cleaning",
+  metadataBase: new URL("https://www.freshforlessovencleaning.co.uk"),
+  title: "Fresh For Less Oven Cleaning | Professional Oven Cleaning at Affordable Prices",
   description:
-    "Professional carpet and upholstery cleaning services that deliver spotless results at prices you'll love. Trusted by 2,000+ families and businesses across the UK.",
+    "Professional oven, hob, extractor and Aga cleaning that brings your appliances back to life. Trusted by 2,000+ households and businesses across the UK. Free no-obligation quotes.",
   keywords: [
-    "carpet cleaning",
-    "upholstery cleaning",
-    "professional cleaning",
-    "deep clean",
-    "stain removal",
-    "affordable carpet cleaning",
-    "carpet cleaner near me",
-    "pet odour removal",
-    "commercial carpet cleaning",
+    "oven cleaning",
+    "professional oven cleaner",
+    "hob cleaning",
+    "extractor hood cleaning",
+    "Aga cleaning",
+    "Range cooker cleaning",
+    "microwave cleaning",
+    "BBQ cleaning",
+    "affordable oven cleaning",
+    "oven cleaner near me",
+    "end of tenancy oven clean",
   ],
   robots: {
     index: true,
@@ -32,16 +33,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    siteName: "Fresh For Less Carpet Cleaning",
-    title: "Fresh For Less Carpet Cleaning | Professional Results, Affordable Prices",
+    siteName: "Fresh For Less Oven Cleaning",
+    title: "Fresh For Less Oven Cleaning | Sparkling Results, Affordable Prices",
     description:
-      "Professional carpet and upholstery cleaning trusted by 2,000+ families. Free no-obligation quotes, eco-friendly products, 100% satisfaction guarantee.",
+      "Professional oven cleaning trusted by 2,000+ households. Free no-obligation quotes, non-toxic eco products, 100% satisfaction guarantee.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fresh For Less Carpet Cleaning",
+    title: "Fresh For Less Oven Cleaning",
     description:
-      "Professional carpet cleaning at affordable prices. Free quotes, eco-friendly products, 100% satisfaction guarantee. Call 0330 043 4811.",
+      "Professional oven cleaning at affordable prices. Free quotes, eco-friendly products, 100% satisfaction guarantee. Call 0330 043 4811.",
   },
 };
 
@@ -49,12 +50,12 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   additionalType: "https://schema.org/ProfessionalService",
-  name: "Fresh For Less Carpet Cleaning",
+  name: "Fresh For Less Oven Cleaning",
   description:
-    "Professional carpet and upholstery cleaning services delivering spotless results at affordable prices.",
+    "Professional oven, hob, extractor and Aga cleaning services delivering sparkling results at affordable prices.",
   telephone: "0330 043 4811",
-  email: "info@freshforlesscarpetcleaning.co.uk",
-  url: "https://www.freshforlesscarpetcleaning.co.uk",
+  email: "info@freshforlessovencleaning.co.uk",
+  url: "https://www.freshforlessovencleaning.co.uk",
   priceRange: "£",
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
@@ -78,13 +79,13 @@ const jsonLd = {
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Cleaning Services",
+    name: "Oven Cleaning Services",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Carpet Cleaning" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Upholstery Cleaning" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Stain Removal" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Cleaning" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Pet Odour Treatment" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Single Oven Cleaning" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Double Oven Cleaning" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Range Cooker & Aga Cleaning" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hob & Extractor Cleaning" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Microwave & BBQ Cleaning" } },
     ],
   },
 };
@@ -96,43 +97,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" className={inter.variable}>
-      <head>
-        <Script id="meta-pixel" strategy="afterInteractive">
-          {`!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '613073519035884');
-fbq('track', 'PageView');`}
-        </Script>
-        <noscript>
-          <img height="1" width="1" style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=613073519035884&ev=PageView&noscript=1"
-          />
-        </noscript>
-      </head>
       <body className="font-sans">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
-        <Script
-          src="https://cleanerbot-kappa.vercel.app/embed.js"
-          data-tenant-id="cmmlqnyuy0000ky04u1rgt7kb"
-          strategy="afterInteractive"
-        />
-        <Script id="cleanerbot-listener" strategy="afterInteractive">
-          {`window.addEventListener("message", function(e) {
-            if (e.data && e.data.type === "cleanerbot:quote-submitted") {
-              setTimeout(function() { window.history.back(); }, 3500);
-            }
-          });`}
-        </Script>
       </body>
     </html>
   );

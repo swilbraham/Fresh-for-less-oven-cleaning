@@ -4,45 +4,47 @@ import AnimatedSection from "../AnimatedSection";
 
 const packages = [
   {
-    name: "1 Room",
-    price: 39,
-    subtitle: "per service",
-    description: "Perfect for a single room refresh",
+    name: "Single Oven",
+    price: 45,
+    subtitle: "per clean",
+    description: "Cavity, door, glass, racks & trays",
     popular: false,
     features: [
-      "Professional deep clean",
-      "Stain pre-treatment",
-      "Deodorising included",
-      "Typically dry in 4-6 hours",
+      "Full cavity & roof deep clean",
+      "Racks & trays dip-tank cleaned",
+      "Inside-the-glass door clean",
+      "Bulbs & seals checked",
+      "Ready to use immediately",
     ],
   },
   {
-    name: "2 Rooms",
-    price: 59,
-    subtitle: "per service",
+    name: "Double Oven",
+    price: 65,
+    subtitle: "per clean",
     description: "Our most popular choice",
     popular: true,
     features: [
-      "Professional deep clean",
-      "Stain pre-treatment",
-      "Deodorising included",
-      "Typically dry in 4-6 hours",
+      "Both cavities deep cleaned",
+      "All racks & trays restored",
+      "Door glass restored to clear",
+      "Bulbs & seals checked",
       "Priority booking",
+      "Hob refresh included",
     ],
   },
   {
-    name: "3 Rooms",
-    price: 79,
-    subtitle: "per service",
-    description: "Best value for whole-home clean",
+    name: "Range Cooker",
+    price: 95,
+    subtitle: "per clean",
+    description: "Aga, Rayburn, Stoves & more",
     popular: false,
     features: [
-      "Professional deep clean",
-      "Stain pre-treatment",
-      "Deodorising included",
-      "Typically dry in 4-6 hours",
+      "All ovens deep cleaned",
+      "Hob, splash-back & extractor",
+      "Racks, trays & enamel restored",
+      "Knobs & controls degreased",
+      "Bulbs & seals checked",
       "Priority booking",
-      "Free hallway clean",
     ],
   },
 ];
@@ -65,7 +67,7 @@ const trustBadges = [
     ),
   },
   {
-    label: "Eco-Friendly Products",
+    label: "Non-Toxic Products",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
@@ -95,11 +97,11 @@ export default function Pricing({ onQuoteClick }: { onQuoteClick: () => void }) 
             Simple Pricing
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            Affordable Packages. <br className="hidden sm:block" />
-            No Hidden Fees.
+            Honest Prices. <br className="hidden sm:block" />
+            Everything Included.
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-slate-600">
-            Transparent pricing with everything included. Pick the package that suits your home and book today.
+            Transparent pricing with no hidden extras. Pick the package that suits your kitchen and book today.
           </p>
         </AnimatedSection>
 
@@ -180,7 +182,7 @@ export default function Pricing({ onQuoteClick }: { onQuoteClick: () => void }) 
         {/* Additional rooms note */}
         <AnimatedSection delay={0.35}>
           <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-slate-500">
-            Need more rooms? Additional rooms from just &pound;20 each. Commercial quotes available on request.
+            Add a hob from &pound;15, an extractor from &pound;15, a microwave from &pound;15 or a BBQ from &pound;45. Commercial &amp; end-of-tenancy quotes available on request.
           </p>
         </AnimatedSection>
 

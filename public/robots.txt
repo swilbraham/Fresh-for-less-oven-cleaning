@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /api/
 
-Sitemap: https://www.freshforlesscarpetcleaning.co.uk/sitemap.xml
+Sitemap: https://www.freshforlessovencleaning.co.uk/sitemap.xml

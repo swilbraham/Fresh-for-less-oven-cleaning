@@ -8,7 +8,7 @@ export default function WhatsAppButton() {
 
   const phoneNumber = "447479921066";
   const message = encodeURIComponent(
-    "Hi! I'd like to get a quote for carpet cleaning please."
+    "Hi! I'd like to get a quote for oven cleaning please."
   );
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

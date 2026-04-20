@@ -9,7 +9,6 @@ const navLinks = [
   { label: "How It Works", href: "#process" },
   { label: "Reviews", href: "#testimonials" },
   { label: "FAQ", href: "#faq" },
-  { label: "Pay Online", href: "/pay/" },
 ];
 
 export default function Navbar({ onQuoteClick }: { onQuoteClick: () => void }) {
@@ -39,7 +38,7 @@ export default function Navbar({ onQuoteClick }: { onQuoteClick: () => void }) {
           <a href="#" className="flex items-center gap-2">
             <img
               src="/images/logo.png"
-              alt="Fresh For Less Carpet Cleaning"
+              alt="Fresh For Less Oven Cleaning"
               className="h-12 w-12 rounded-full object-contain lg:h-14 lg:w-14"
             />
             <div>
@@ -55,7 +54,7 @@ export default function Navbar({ onQuoteClick }: { onQuoteClick: () => void }) {
                   scrolled ? "text-primary-600" : "text-primary-300"
                 }`}
               >
-                Carpet Cleaning
+                Oven Cleaning
               </span>
             </div>
           </a>

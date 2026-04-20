@@ -50,7 +50,7 @@ export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
             >
               <span className="inline-flex items-center gap-2 rounded-full border border-primary-500/20 bg-primary-500/10 px-4 py-1.5 text-xs font-medium text-primary-300 backdrop-blur-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent-400 animate-pulse" />
-                Trusted by 2,000+ Families &amp; Businesses
+                Trusted by 2,000+ Households &amp; Businesses
               </span>
             </motion.div>
 
@@ -61,7 +61,7 @@ export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              Carpets That Look{" "}
+              Ovens That Look{" "}
               <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
                 Brand New
               </span>
@@ -76,7 +76,7 @@ export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
               transition={{ duration: 0.6, delay: 0.45 }}
               className="mt-6 max-w-xl text-lg leading-relaxed text-slate-400 sm:text-xl"
             >
-              Professional deep-cleaning that removes stubborn stains, allergens, and odours — leaving your home healthier and your carpets looking fresh. Affordable rates, guaranteed results.
+              Professional deep-cleaning that removes baked-on grease, burnt food and stubborn carbon — leaving your oven safer, more efficient and gleaming. Non-toxic products, guaranteed results.
             </motion.p>
 
             {/* CTAs */}
@@ -113,7 +113,7 @@ export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
             >
               {[
                 { value: "4.9/5", label: "Customer Rating" },
-                { value: "2,000+", label: "Homes Cleaned" },
+                { value: "2,000+", label: "Ovens Cleaned" },
                 { value: "100%", label: "Satisfaction Guaranteed" },
               ].map((stat) => (
                 <div key={stat.label}>
@@ -135,7 +135,7 @@ export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
               <div className="absolute inset-0 rounded-full bg-primary-500/20 blur-3xl" />
               <img
                 src="/images/logo.png"
-                alt="Fresh For Less Carpet Cleaning"
+                alt="Fresh For Less Oven Cleaning"
                 className="relative h-72 w-72 object-contain drop-shadow-2xl xl:h-80 xl:w-80"
               />
             </div>

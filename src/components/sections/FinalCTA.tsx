@@ -45,14 +45,14 @@ export default function FinalCTA({ onQuoteClick }: { onQuoteClick: () => void })
           </span>
 
           <h2 className="mt-6 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
-            Ready for Carpets That Look{" "}
+            Ready for an Oven That Looks{" "}
             <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-              and Feel Amazing?
+              Brand New Again?
             </span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-400">
-            Get your free, no-obligation quote in minutes. We&apos;ll assess your needs and provide transparent pricing — no hidden fees, no pressure. Just honest, professional service.
+            Get your free, no-obligation quote in minutes. We&apos;ll assess your appliances and give you honest, transparent pricing — no hidden fees, no pressure. Just professional service done right.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
