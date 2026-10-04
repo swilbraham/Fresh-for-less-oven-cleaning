@@ -68,8 +68,8 @@ export default function Process() {
         {/* Clean room result image */}
         <AnimatedSection className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-2xl shadow-lg">
           <img
-            src="/images/clean-room.jpg"
-            alt="Sparkling clean kitchen oven after a deep clean"
+            src="/images/oven-shelf-clean.jpg"
+            alt="A gloved hand working cleaning foam across an oven shelf inside the cavity"
             className="h-48 w-full object-cover sm:h-56 lg:h-64"
           />
         </AnimatedSection>

@@ -82,8 +82,8 @@ export default function Benefits() {
         {/* Family image banner */}
         <AnimatedSection className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl shadow-lg">
           <img
-            src="/images/family-home.jpg"
-            alt="Family enjoying a meal cooked in a freshly cleaned oven"
+            src="/images/oven-in-kitchen.jpg"
+            alt="A built-in domestic oven in a fitted kitchen"
             className="h-48 w-full object-cover sm:h-64 lg:h-72"
           />
         </AnimatedSection>

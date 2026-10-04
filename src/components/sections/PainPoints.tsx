@@ -64,13 +64,24 @@ export default function PainPoints() {
           </p>
         </AnimatedSection>
 
-        {/* Visual banner */}
-        <AnimatedSection className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-2xl shadow-lg">
-          <img
-            src="/images/clean-carpet.jpg"
-            alt="Sparkling clean oven interior"
-            className="h-48 w-full object-cover sm:h-56 lg:h-64"
-          />
+        {/*
+          A real job rather than a stock interior. This is the only thing on
+          the page that proves the claim instead of making it, which is why it
+          sits this high and why it is shown whole: cropping a before-and-after
+          into a banner strip throws away the half that does the work.
+        */}
+        <AnimatedSection className="mx-auto mt-12 max-w-4xl">
+          <figure className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200">
+            <img
+              src="/images/oven-before-after.jpg"
+              alt="The same single oven before and after cleaning: burnt-on carbon across the door glass and base, then clear glass and bare enamel"
+              className="w-full object-contain"
+            />
+            <figcaption className="bg-slate-900 px-5 py-3 text-center text-sm font-medium text-slate-300">
+              A real job, done in about 90 minutes.{" "}
+              <span className="text-white">This one cost &pound;45.</span>
+            </figcaption>
+          </figure>
         </AnimatedSection>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:gap-8">
