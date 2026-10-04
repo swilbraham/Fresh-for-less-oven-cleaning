@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
+  // An absolute path rather than a hash: this link has to work from /book and
+  // /privacy too, where the anchors below have nothing to scroll to.
+  { label: "Book Online", href: "/book" },
   { label: "Services", href: "#services" },
   { label: "Pricing", href: "#pricing" },
   { label: "How It Works", href: "#process" },

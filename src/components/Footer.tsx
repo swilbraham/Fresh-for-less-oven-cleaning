@@ -59,11 +59,14 @@ export default function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-300">Quick Links</h4>
             <ul className="mt-4 space-y-3">
               {[
+                { label: "Book online", href: "/book" },
                 { label: "Pricing", href: "#pricing" },
                 { label: "How It Works", href: "#process" },
                 { label: "Reviews", href: "#testimonials" },
                 { label: "FAQ", href: "#faq" },
                 { label: "About Us", href: "#about" },
+                { label: "Join as an oven cleaner", href: "/pro" },
+                { label: "Privacy policy", href: "/privacy" },
               ].map((link) => (
                 <li key={link.label}>
                   <a href={link.href} className="text-sm text-slate-400 hover:text-white transition-colors">

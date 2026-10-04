@@ -1,4 +1,16 @@
 User-agent: *
 Allow: /
 
+# Signed-in and single-use pages. Not a security boundary — these are behind
+# authentication or a one-off reference — but a customer searching for us
+# should never be handed somebody else's booking out of a search result.
+Disallow: /admin
+Disallow: /booking/
+Disallow: /book/confirmed/
+Disallow: /pro/dashboard
+Disallow: /pro/coverage
+Disallow: /pro/history
+Disallow: /pro/invoices
+Disallow: /pro/reset
+
 Sitemap: https://www.freshforlessovencleaning.co.uk/sitemap.xml

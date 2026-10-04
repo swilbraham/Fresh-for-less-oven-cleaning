@@ -39,3 +39,11 @@ next-env.d.ts
 start-dev.ps1
 verify-build.ps1
 .claude/
+
+# Local booking database (PGlite)
+.data/
+
+# Real secrets never get committed
+.env*
+!.env.example
+.vercel
