@@ -21,11 +21,5 @@
         }
       ]
     }
-  ],
-  "crons": [
-    {
-      "path": "/api/cron/invoices",
-      "schedule": "0 7 * * 1"
-    }
   ]
 }

@@ -4,7 +4,7 @@
 Marketing website for **Fresh For Less Carpet Cleaning**, a local carpet and upholstery cleaning business. The site targets women aged 26-65+, families, and commercial customers. The primary conversion goal is getting users to request a free quote.
 
 ## Tech Stack
-- **Framework:** Next.js 16 (App Router, static export)
+- **Framework:** Next.js 16 (App Router, server-rendered)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v4 (using `@theme` directive, `@tailwindcss/postcss`)
 - **Animations:** Framer Motion
@@ -35,7 +35,7 @@ src/
 ## Commands
 ```bash
 npm run dev      # Start development server
-npm run build    # Production build (static export to /out)
+npm run build    # Production build
 npm run start    # Serve production build
 npm run lint     # Run ESLint
 ```
@@ -56,7 +56,7 @@ $env:Path = "$nodePath;$env:Path"
 - All section components are client components (`"use client"`) because they use Framer Motion
 - The `QuoteModal` is controlled by `page.tsx` state and passed via `onQuoteClick` props
 - The Navbar uses a transparent-to-frosted-glass transition on scroll
-- Static export mode (`output: "export"` in `next.config.ts`) — no server-side features
+- Server-rendered: the booking engine needs route handlers, server actions and a database
 - Testimonials section uses a grid on desktop and a carousel with AnimatePresence on mobile
 
 ## Business Details (placeholder)
