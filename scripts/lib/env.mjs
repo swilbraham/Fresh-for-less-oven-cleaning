@@ -24,8 +24,13 @@ export function databaseUrl() {
     // Only DATABASE_URL, never DATABASE_URL_UNPOOLED — the anchored name and
     // the line start keep the two apart.
     const match = text.match(/^\s*(?:export\s+)?DATABASE_URL\s*=\s*(.+)$/m);
-    if (!match) continue;
-    const value = match[1].trim().replace(/^["']|["']$/g, "");
+    const value = match
+      ? match[1].trim().replace(/^["']|["']$/g, "")
+      // A file holding nothing but the connection string is what you get from
+      // piping the clipboard straight in, so accept that shape too rather
+      // than making the DATABASE_URL= prefix the difference between working
+      // and a confusing failure.
+      : (text.split(/\r?\n/).map((l) => l.trim()).find((l) => /^postgres(ql)?:\/\//.test(l)) ?? "");
     if (value) return check(value, file);
   }
 
