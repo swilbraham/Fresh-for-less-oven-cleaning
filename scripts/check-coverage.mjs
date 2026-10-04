@@ -10,12 +10,9 @@
  *   DATABASE_URL='postgres://...' node scripts/check-coverage.mjs CH43
  */
 import { neon } from "@neondatabase/serverless";
+import { databaseUrl } from "./lib/env.mjs";
 
-const url = process.env.DATABASE_URL;
-if (!url) {
-  console.error("\n  DATABASE_URL is not set. Copy it from the Vercel project's environment variables.\n");
-  process.exit(1);
-}
+const url = databaseUrl();
 
 const outward = (process.argv[2] ?? "CH43").trim().toUpperCase();
 const sql = neon(url);

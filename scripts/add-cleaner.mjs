@@ -22,6 +22,7 @@
  */
 import { randomBytes, scryptSync } from "node:crypto";
 import { neon } from "@neondatabase/serverless";
+import { databaseUrl } from "./lib/env.mjs";
 
 const args = new Map();
 for (let i = 2; i < process.argv.length; i += 2) {
@@ -33,8 +34,7 @@ function fail(message) {
   process.exit(1);
 }
 
-const url = process.env.DATABASE_URL;
-if (!url) fail("DATABASE_URL is not set. Copy it from the Vercel project's environment variables.");
+const url = databaseUrl();
 
 const name = args.get("name");
 const email = (args.get("email") ?? "").trim().toLowerCase();
