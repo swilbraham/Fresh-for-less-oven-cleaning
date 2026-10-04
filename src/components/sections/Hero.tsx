@@ -51,7 +51,7 @@ export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
             >
               <span className="inline-flex items-center gap-2 rounded-full border border-primary-500/20 bg-primary-500/10 px-4 py-1.5 text-xs font-medium text-primary-300 backdrop-blur-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent-400 animate-pulse" />
-                Trusted by 2,000+ Households &amp; Businesses
+                Fixed prices online &middot; no home visit needed
               </span>
             </motion.div>
 
@@ -135,9 +135,14 @@ export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
               className="mt-14 grid grid-cols-3 gap-6 border-t border-slate-800 pt-8"
             >
               {[
-                { value: "4.9/5", label: "Customer Rating" },
-                { value: "2,000+", label: "Ovens Cleaned" },
-                { value: "100%", label: "Satisfaction Guaranteed" },
+                // Operational facts rather than reputation figures. A number
+                // the customer can check against the price list beats a review
+                // score they have no way to verify, and these three answer the
+                // questions that actually stop someone booking: what will it
+                // cost, how long are they in my kitchen, and can I cook tonight.
+                { value: "From \u00a345", label: "Single Oven" },
+                { value: "90 min", label: "Typical Visit" },
+                { value: "Same day", label: "Use It Again" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-2xl font-bold text-white sm:text-3xl">{stat.value}</p>

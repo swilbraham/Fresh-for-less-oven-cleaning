@@ -10,9 +10,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.freshforlessovencleaning.co.uk"),
-  title: "Fresh For Less Oven Cleaning | Professional Oven Cleaning at Affordable Prices",
+  title: "Fresh For Less Oven Cleaning | Book Online, Fixed Prices from \u00a345",
   description:
-    "Professional oven, hob, extractor and Aga cleaning that brings your appliances back to life. Trusted by 2,000+ households and businesses across the UK. Free no-obligation quotes.",
+    "Oven, hob, extractor and Aga cleaning at fixed prices you can see before you book. Single oven from \u00a345, booked online in a minute, no home visit and nothing to pay upfront.",
   keywords: [
     "oven cleaning",
     "professional oven cleaner",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Fresh For Less Oven Cleaning",
     title: "Fresh For Less Oven Cleaning | Sparkling Results, Affordable Prices",
     description:
-      "Professional oven cleaning trusted by 2,000+ households. Free no-obligation quotes, non-toxic eco products, 100% satisfaction guarantee.",
+      "Fixed prices online, single oven from \u00a345. Pick a slot, pay on the day, use the oven the same evening. Non-caustic products, insured and vetted.",
   },
   twitter: {
     card: "summary_large_image",
