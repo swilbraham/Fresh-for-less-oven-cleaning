@@ -1792,13 +1792,26 @@ export async function setInvoiceStatus(
 // ----------------------------------------------------------- notifications --
 
 /** Public base URL, used to build tappable links inside SMS. */
+/**
+ * The base every outgoing link is built from.
+ *
+ * VERCEL_URL is deliberately only consulted off production. It is set on every
+ * Vercel deployment, including production, where it holds the one-off
+ * deployment hostname rather than the custom domain — so preferring it builds
+ * customer links on a *.vercel.app address, and would break the signature
+ * check on any webhook that hashes its own URL.
+ *
+ * So production uses the configured domain unless MARKETPLACE_BASE_URL
+ * overrides it, and only a preview build falls back to its own hostname —
+ * which is what previews need, or testers would be sent to the live site.
+ */
 export function siteUrl(): string {
   const explicit = process.env.MARKETPLACE_BASE_URL;
   if (explicit) return explicit.replace(/\/$/, "");
-  // On a Vercel preview build there's no custom domain, so links must point at
-  // the deployment itself or they'd send testers to the live site.
+  const configured = configuredSiteUrl().replace(/\/+$/, "");
+  if (process.env.VERCEL_ENV === "production") return configured;
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-  return configuredSiteUrl().replace(/\/+$/, "");
+  return configured;
 }
 
 /**
