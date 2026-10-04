@@ -45,14 +45,15 @@ export default function About() {
           {/* Image / Visual */}
           <AnimatedSection>
             <div className="relative">
-              {/* Team photo */}
-              <div className="mb-6 overflow-hidden rounded-2xl shadow-lg">
-                <img
-                  src="/images/about-cleaner.jpg"
-                  alt="Professional oven cleaner at work"
-                  className="h-56 w-full object-cover sm:h-64"
-                />
-              </div>
+              {/*
+                No photo here for now. The file in this slot came over with the
+                carpet-cleaning template and showed an extraction wand on a
+                carpet, which is a confusing thing to find on an oven cleaning
+                site. To put one back, drop a file in public/images/ and
+                restore this block pointing at it. A real before-and-after from
+                a job will do more work than any stock photograph, because the
+                state the oven comes back in is the whole proposition.
+              */}
               {/* Dashboard-style card */}
               <div className="overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 shadow-xl">
                 {/* Stats dashboard */}

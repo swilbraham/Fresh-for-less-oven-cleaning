@@ -5,8 +5,8 @@ import { PhoneIcon } from "@/config/icons";
 /**
  * Brand header for the customer-facing marketplace pages.
  *
- * The main Navbar can't be reused here: it needs an onQuoteClick callback and
- * its links are homepage anchors that do nothing on /book. This keeps the same
+ * The main Navbar can't be reused here: its links are homepage anchors that
+ * do nothing on /book. This keeps the same
  * logo, wordmark and phone CTA so the booking flow reads as part of the
  * client's own site rather than a detached third-party tool.
  */

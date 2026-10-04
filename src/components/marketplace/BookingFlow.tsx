@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import {
   buildQuote,
@@ -47,6 +47,7 @@ export default function BookingFlow({
   bundles,
   commissionPct,
   landing,
+  initialPostcode = "",
 }: {
   services: Service[];
   items: PriceItem[];
@@ -54,10 +55,17 @@ export default function BookingFlow({
   commissionPct: number;
   /** Marketing content, shown only before the customer starts the quote. */
   landing?: ReactNode;
+  /**
+   * Postcode carried in from the homepage. Someone who has already typed it
+   * once should not be asked again — retyping it is the first chance to
+   * abandon the booking, and the whole point of asking on the homepage is to
+   * get them past this step before they have decided anything.
+   */
+  initialPostcode?: string;
 }) {
   const router = useRouter();
   const [step, setStep] = useState<Step>("postcode");
-  const [postcode, setPostcode] = useState("");
+  const [postcode, setPostcode] = useState(initialPostcode.toUpperCase());
   const [checking, setChecking] = useState(false);
   const [coverage, setCoverage] = useState<Coverage | null>(null);
   const [chosenServices, setChosenServices] = useState<string[]>([]);
@@ -131,11 +139,15 @@ export default function BookingFlow({
 
   async function checkPostcode(event: React.FormEvent) {
     event.preventDefault();
+    await runPostcodeCheck(postcode);
+  }
+
+  async function runPostcodeCheck(code: string) {
     setError("");
     setChecking(true);
     try {
       const response = await fetch(
-        `/api/marketplace/slots?postcode=${encodeURIComponent(postcode)}`
+        `/api/marketplace/slots?postcode=${encodeURIComponent(code)}`
       );
       const data = await response.json();
       if (!data.ok) {
@@ -151,6 +163,19 @@ export default function BookingFlow({
       setChecking(false);
     }
   }
+
+  // A postcode arriving from the homepage is checked straight away, so the
+  // customer lands on the service list rather than on a box already holding
+  // what they just typed. Guarded by a ref rather than the dependency list
+  // because this must happen exactly once, whatever re-renders follow.
+  const autoChecked = useRef(false);
+  useEffect(() => {
+    if (autoChecked.current) return;
+    if (initialPostcode.trim().length < 5) return;
+    autoChecked.current = true;
+    void runPostcodeCheck(initialPostcode);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   /** No cleaner here yet — keep the lead rather than losing the customer. */
   async function joinWaitlist() {

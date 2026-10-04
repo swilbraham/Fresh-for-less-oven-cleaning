@@ -85,7 +85,7 @@ const trustBadges = [
   },
 ];
 
-export default function Pricing({ onQuoteClick }: { onQuoteClick: () => void }) {
+export default function Pricing() {
   return (
     <section id="pricing" className="relative overflow-hidden bg-slate-50 py-20 lg:py-28">
       {/* Top border accent */}
@@ -187,12 +187,12 @@ export default function Pricing({ onQuoteClick }: { onQuoteClick: () => void }) 
           </p>
                   <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-500">
             Something not on the list, or a commercial kitchen?{" "}
-            <button
-              onClick={onQuoteClick}
+            <a
+              href="tel:03300434811"
               className="font-semibold text-primary-600 underline underline-offset-4 transition hover:text-primary-700"
             >
-              Ask for a quote
-            </button>
+              Call 0330 043 4811
+            </a>
           </p>
 </AnimatedSection>
 

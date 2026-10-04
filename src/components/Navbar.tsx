@@ -14,7 +14,7 @@ const navLinks = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export default function Navbar({ onQuoteClick }: { onQuoteClick: () => void }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -150,15 +150,7 @@ export default function Navbar({ onQuoteClick }: { onQuoteClick: () => void }) {
               >
                 Book online &mdash; instant price
               </Link>
-              <button
-                onClick={() => {
-                  setMobileOpen(false);
-                  onQuoteClick();
-                }}
-                className="mt-2 w-full rounded-lg px-5 py-3 text-sm font-semibold text-slate-600"
-              >
-                Or ask for a quote
-              </button>
+
             </div>
           </motion.div>
         )}

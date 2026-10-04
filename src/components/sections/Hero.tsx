@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
+export default function Hero() {
   return (
     <section className="relative min-h-[100dvh] overflow-hidden bg-slate-950">
       {/* Background Image + Gradient Layers */}
@@ -87,16 +87,41 @@ export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
             >
-              <Link
-                href="/book"
-                className="group relative overflow-hidden rounded-xl bg-primary-600 px-8 py-4 text-center text-base font-semibold text-white shadow-2xl shadow-primary-600/30 transition-all hover:bg-primary-700 hover:shadow-primary-600/50 active:scale-[0.98]"
-              >
-                <span className="relative z-10">See your price &amp; book online</span>
-                <span className="relative z-10 mt-0.5 block text-xs font-normal text-primary-100">
-                  Takes a minute &middot; single oven from &pound;45
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 opacity-0 transition-opacity group-hover:opacity-100" />
-              </Link>
+              {/*
+                A plain GET form rather than a scripted handler: it navigates to
+                /book?postcode=… with no JavaScript at all, and the booking page
+                checks the area on arrival. Asking here rather than on /book
+                matters because typing a postcode is a far smaller commitment
+                than clicking something called "book", and once it is typed the
+                customer is already one step into the flow.
+              */}
+              <form action="/book" method="get" className="flex w-full flex-col gap-3 sm:max-w-md">
+                <label htmlFor="hero-postcode" className="sr-only">
+                  Your postcode
+                </label>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <input
+                    id="hero-postcode"
+                    name="postcode"
+                    required
+                    minLength={5}
+                    maxLength={9}
+                    autoComplete="postal-code"
+                    placeholder="Your postcode"
+                    className="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-5 py-4 text-base uppercase tracking-wide text-white placeholder:normal-case placeholder:text-slate-500 backdrop-blur-sm outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30"
+                  />
+                  <button
+                    type="submit"
+                    className="group relative shrink-0 overflow-hidden rounded-xl bg-primary-600 px-8 py-4 text-base font-semibold text-white shadow-2xl shadow-primary-600/30 transition-all hover:bg-primary-700 hover:shadow-primary-600/50 active:scale-[0.98]"
+                  >
+                    <span className="relative z-10">See my price</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 opacity-0 transition-opacity group-hover:opacity-100" />
+                  </button>
+                </div>
+                <p className="text-xs text-slate-400">
+                  Fixed price in under a minute &middot; single oven from &pound;45 &middot; nothing to pay now
+                </p>
+              </form>
               <a
                 href="tel:03300434811"
                 className="flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800/50 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-slate-600 hover:bg-slate-800"
@@ -108,23 +133,22 @@ export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
               </a>
             </motion.div>
 
-            {/* The quote form still exists for anything the price list cannot
-                cover - a commercial kitchen, an unusual appliance - but it is
-                no longer the main road. Booking gives an instant fixed price;
-                a quote request makes the customer wait for a callback. */}
+            {/* A phone number rather than a form. Anything the price list
+                cannot cover is a conversation, and an enquiry form would put a
+                manual step back into a flow built to run without one. */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
               className="mt-4 text-sm text-slate-400"
             >
-              Something unusual, or a commercial kitchen?{" "}
-              <button
-                onClick={onQuoteClick}
+              Commercial kitchen or something unusual?{" "}
+              <a
+                href="tel:03300434811"
                 className="font-semibold text-primary-300 underline underline-offset-4 transition hover:text-primary-200"
               >
-                Ask for a quote instead
-              </button>
+                Give us a ring
+              </a>
             </motion.p>
 
             {/* Trust Metrics */}

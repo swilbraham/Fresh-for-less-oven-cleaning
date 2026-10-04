@@ -19,7 +19,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "/book" },
 };
 
-export default async function BookPage() {
+export default async function BookPage({
+  searchParams,
+}: {
+  // Carried over from the homepage postcode box. Validated downstream by the
+  // slots endpoint, so anything unusable simply leaves the customer on step
+  // one rather than failing.
+  searchParams: Promise<{ postcode?: string }>;
+}) {
+  const { postcode = "" } = await searchParams;
   const [services, items, bundles, settings] = await Promise.all([
     getServices(true),
     getPriceItems(true),
@@ -60,6 +68,7 @@ export default async function BookPage() {
 
       <div className="pt-10">
         <BookingFlow
+          initialPostcode={postcode}
           services={services}
           items={items}
           bundles={bundles}

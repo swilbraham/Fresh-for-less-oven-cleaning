@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AnimatedSection from "../AnimatedSection";
 
-export default function FinalCTA({ onQuoteClick }: { onQuoteClick: () => void }) {
+export default function FinalCTA() {
   return (
     <section className="relative overflow-hidden bg-slate-950 py-20 lg:py-28">
       {/* Background with image */}
@@ -77,12 +77,12 @@ export default function FinalCTA({ onQuoteClick }: { onQuoteClick: () => void })
 
           <p className="mt-6 text-sm text-slate-500">
             Prefer to talk it through?{" "}
-            <button
-              onClick={onQuoteClick}
+            <a
+              href="tel:03300434811"
               className="font-semibold text-primary-300 underline underline-offset-4 transition hover:text-primary-200"
             >
-              Ask for a quote instead
-            </button>
+              Call 0330 043 4811
+            </a>
           </p>
 
           {/* Trust row */}
