@@ -5,7 +5,7 @@ import { gbpShort } from "./money";
 import { outwardOf, normalisePostcode } from "./postcode";
 import { isMobile, toE164 } from "./phone";
 import { bookingUrl } from "./auth";
-import { COMMISSION_TERMS_SHORT } from "./terms";
+import { COMMISSION_ENFORCEMENT, COMMISSION_TERMS_SHORT } from "./terms";
 import { firstName } from "./names";
 import {
   BRAND,
@@ -1722,24 +1722,26 @@ export async function generateCommissionInvoices(
 /** Tell a cleaner their commission invoice has been raised. */
 export async function notifyInvoiceRaised(
   invoice: RaisedInvoice,
-  dueBy: string
+  dayLabel: string
 ): Promise<void> {
   const cleaner = await getCleaner(invoice.cleanerId);
   if (!cleaner) return;
 
+  // The consequence goes in the message itself, not only in the terms page.
+  // A sanction somebody can honestly say they never saw is not a sanction.
   await notifyCleaner(cleaner, {
-    subject: `Commission invoice ${invoice.ref} — ${gbpShort(invoice.totalPence)}`,
+    subject: `Commission for ${dayLabel} — ${gbpShort(invoice.totalPence)} (${invoice.ref})`,
     body:
-      `${cleaner.name}, here's your commission invoice for last week.\n\n` +
+      `${cleaner.name}, here is your commission for ${dayLabel}.\n\n` +
       `Invoice: ${invoice.ref}\n` +
       `Jobs completed: ${invoice.jobs}\n` +
-      `Commission due: ${gbpShort(invoice.totalPence)}\n` +
-      `Payable by: ${dueBy}\n\n` +
-      `View, print or pay it here:\n${siteUrl()}/pro/invoices/${invoice.ref}`,
+      `Commission due: ${gbpShort(invoice.totalPence)}\n\n` +
+      `Pay it here:\n${siteUrl()}/pro/invoices/${invoice.ref}\n\n` +
+      `${COMMISSION_ENFORCEMENT}`,
     smsBody:
-      `Commission invoice ${invoice.ref}: ${gbpShort(invoice.totalPence)} for ` +
-      `${invoice.jobs} job${invoice.jobs === 1 ? "" : "s"}, due ${dueBy}. ` +
-      `${siteUrl()}/pro/invoices/${invoice.ref}`,
+      `${BRAND.shortName}: ${gbpShort(invoice.totalPence)} commission for ` +
+      `${invoice.jobs} job${invoice.jobs === 1 ? "" : "s"} today. Pay now: ` +
+      `${siteUrl()}/pro/invoices/${invoice.ref} — unpaid means suspension.`,
   });
 }
 

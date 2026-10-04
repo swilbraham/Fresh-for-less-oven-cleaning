@@ -26,11 +26,11 @@ function longDate(date: Date): string {
 }
 
 /**
- * Weekly commission run — Vercel cron hits this every Monday morning.
+ * Daily commission run — Vercel cron hits this each evening.
  *
- * It bills every completed job that isn't already on an invoice, not just ones
- * inside the labelled week, so anything completed late still gets picked up
- * rather than silently falling through the gap. The unique index on invoice
+ * It bills every completed job that isn't already on an invoice, not just the
+ * ones inside the labelled day, so a job marked complete late still gets
+ * picked up rather than falling through the gap. The unique index on invoice
  * lines means a double trigger can't double-bill.
  *
  * Inert on a solo site: there is no commission to bill and nobody to bill it
@@ -57,19 +57,15 @@ export async function GET(request: Request) {
     }
   }
 
+  // The run covers today, and is labelled as today. Commission is payable on
+  // the day it is raised, so there is no due date to carry around.
   const today = new Date();
-  const lastMonday = new Date(today);
-  lastMonday.setDate(today.getDate() - ((today.getDay() + 6) % 7) - 7);
-  const lastSunday = new Date(lastMonday);
-  lastSunday.setDate(lastMonday.getDate() + 6);
+  const dayLabel = longDate(today);
 
-  const dueBy = new Date(today);
-  dueBy.setDate(today.getDate() + 7);
-
-  const raised = await generateCommissionInvoices(iso(lastMonday), iso(lastSunday));
+  const raised = await generateCommissionInvoices(iso(today), iso(today));
 
   for (const invoice of raised) {
-    await notifyInvoiceRaised(invoice, longDate(dueBy));
+    await notifyInvoiceRaised(invoice, dayLabel);
   }
 
   if (raised.length > 0) {
@@ -77,19 +73,20 @@ export async function GET(request: Request) {
     const total = raised.reduce((sum, i) => sum + i.totalPence, 0);
     await notify({
       recipient: settings.booking_email,
-      subject: `Weekly commission run — ${raised.length} invoice${raised.length === 1 ? "" : "s"}, ${gbpShort(total)}`,
+      subject: `Commission run ${iso(today)} — ${raised.length} payment link${raised.length === 1 ? "" : "s"}, ${gbpShort(total)}`,
       body:
-        `Commission invoices for ${iso(lastMonday)} to ${iso(lastSunday)}:\n\n` +
+        `Commission raised for ${dayLabel}:\n\n` +
         raised
           .map((i) => `${i.ref} — ${gbpShort(i.totalPence)} (${i.jobs} job${i.jobs === 1 ? "" : "s"})`)
           .join("\n") +
-        `\n\nTotal: ${gbpShort(total)}, payable by ${longDate(dueBy)}.`,
+        `\n\nTotal: ${gbpShort(total)}, due today.\n` +
+        `Send each payment link from Stripe or Square, then mark it paid in /admin/invoices.`,
     });
   }
 
   return NextResponse.json({
     ok: true,
-    period: { from: iso(lastMonday), to: iso(lastSunday) },
+    period: { from: iso(today), to: iso(today) },
     invoicesRaised: raised.length,
     totalPence: raised.reduce((sum, i) => sum + i.totalPence, 0),
   });

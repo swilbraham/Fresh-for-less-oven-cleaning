@@ -90,7 +90,8 @@ export const preset: SiteConfig = {
     commissionPct: 20,
     minNoticeDays: 1,
     cancellationNoticeHours: 24,
-    paymentTermsDays: 7,
+    // Commission is settled the day it is raised, not on credit terms.
+    paymentTermsDays: 0,
     quoteResponseHours: 2,
   },
 

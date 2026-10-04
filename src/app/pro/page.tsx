@@ -12,7 +12,10 @@ import {
 } from "@/lib/marketplace/repo";
 import { buildQuote, type Basket } from "@/lib/marketplace/pricing";
 import { gbp, gbpShort } from "@/lib/marketplace/money";
-import { COMMISSION_TERMS_LONG } from "@/lib/marketplace/terms";
+import {
+  COMMISSION_ENFORCEMENT,
+  COMMISSION_TERMS_LONG,
+} from "@/lib/marketplace/terms";
 import {
   DROP_REVIEW_DAYS,
   DROP_REVIEW_LIMIT,
@@ -165,6 +168,9 @@ export default async function ProPage({
             <p className="mt-4 rounded-xl bg-slate-50 px-4 py-3 text-xs text-slate-600">
               <strong className="text-slate-800">How you get paid.</strong>{" "}
               {COMMISSION_TERMS_LONG}
+            </p>
+            <p className="mt-3 font-semibold text-amber-900">
+              {COMMISSION_ENFORCEMENT}
             </p>
 
             <details className="mt-4">
