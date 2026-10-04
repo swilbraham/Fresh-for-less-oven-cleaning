@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
@@ -86,13 +87,16 @@ export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
             >
-              <button
-                onClick={onQuoteClick}
-                className="group relative overflow-hidden rounded-xl bg-primary-600 px-8 py-4 text-base font-semibold text-white shadow-2xl shadow-primary-600/30 transition-all hover:bg-primary-700 hover:shadow-primary-600/50 active:scale-[0.98]"
+              <Link
+                href="/book"
+                className="group relative overflow-hidden rounded-xl bg-primary-600 px-8 py-4 text-center text-base font-semibold text-white shadow-2xl shadow-primary-600/30 transition-all hover:bg-primary-700 hover:shadow-primary-600/50 active:scale-[0.98]"
               >
-                <span className="relative z-10">Get Your Free Quote</span>
+                <span className="relative z-10">See your price &amp; book online</span>
+                <span className="relative z-10 mt-0.5 block text-xs font-normal text-primary-100">
+                  Takes a minute &middot; single oven from &pound;45
+                </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 opacity-0 transition-opacity group-hover:opacity-100" />
-              </button>
+              </Link>
               <a
                 href="tel:03300434811"
                 className="flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800/50 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-slate-600 hover:bg-slate-800"
@@ -103,6 +107,25 @@ export default function Hero({ onQuoteClick }: { onQuoteClick: () => void }) {
                 Call 0330 043 4811
               </a>
             </motion.div>
+
+            {/* The quote form still exists for anything the price list cannot
+                cover - a commercial kitchen, an unusual appliance - but it is
+                no longer the main road. Booking gives an instant fixed price;
+                a quote request makes the customer wait for a callback. */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="mt-4 text-sm text-slate-400"
+            >
+              Something unusual, or a commercial kitchen?{" "}
+              <button
+                onClick={onQuoteClick}
+                className="font-semibold text-primary-300 underline underline-offset-4 transition hover:text-primary-200"
+              >
+                Ask for a quote instead
+              </button>
+            </motion.p>
 
             {/* Trust Metrics */}
             <motion.div

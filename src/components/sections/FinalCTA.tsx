@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import AnimatedSection from "../AnimatedSection";
 
@@ -56,13 +57,13 @@ export default function FinalCTA({ onQuoteClick }: { onQuoteClick: () => void })
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <button
-              onClick={onQuoteClick}
-              className="group relative overflow-hidden rounded-xl bg-primary-600 px-10 py-4 text-base font-semibold text-white shadow-2xl shadow-primary-600/30 transition-all hover:bg-primary-700 hover:shadow-primary-600/50 active:scale-[0.98]"
+            <Link
+              href="/book"
+              className="group relative overflow-hidden rounded-xl bg-primary-600 px-10 py-4 text-center text-base font-semibold text-white shadow-2xl shadow-primary-600/30 transition-all hover:bg-primary-700 hover:shadow-primary-600/50 active:scale-[0.98]"
             >
-              <span className="relative z-10">Get Your Free Quote Now</span>
+              <span className="relative z-10">See your price &amp; book now</span>
               <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 opacity-0 transition-opacity group-hover:opacity-100" />
-            </button>
+            </Link>
             <a
               href="tel:03300434811"
               className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800/50 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-slate-600 hover:bg-slate-800"
@@ -73,6 +74,16 @@ export default function FinalCTA({ onQuoteClick }: { onQuoteClick: () => void })
               Call 0330 043 4811
             </a>
           </div>
+
+          <p className="mt-6 text-sm text-slate-500">
+            Prefer to talk it through?{" "}
+            <button
+              onClick={onQuoteClick}
+              className="font-semibold text-primary-300 underline underline-offset-4 transition hover:text-primary-200"
+            >
+              Ask for a quote instead
+            </button>
+          </p>
 
           {/* Trust row */}
           <div className="mx-auto mt-12 flex max-w-lg flex-wrap items-center justify-center gap-x-8 gap-y-4 border-t border-slate-800 pt-8">

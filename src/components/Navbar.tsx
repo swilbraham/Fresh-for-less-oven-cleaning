@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Booking is the solid button on the right rather than one link among six,
+// so it is not listed here as well.
 const navLinks = [
-  // An absolute path rather than a hash: this link has to work from /book and
-  // /privacy too, where the anchors below have nothing to scroll to.
-  { label: "Book Online", href: "/book" },
   { label: "Services", href: "#services" },
   { label: "Pricing", href: "#pricing" },
   { label: "How It Works", href: "#process" },
@@ -86,12 +86,12 @@ export default function Navbar({ onQuoteClick }: { onQuoteClick: () => void }) {
               </svg>
               0330 043 4811
             </a>
-            <button
-              onClick={onQuoteClick}
+            <Link
+              href="/book"
               className="ml-2 rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-600/25 transition-all hover:bg-primary-700 hover:shadow-primary-600/40 active:scale-[0.98]"
             >
-              Get a Free Quote
-            </button>
+              Book Online
+            </Link>
           </div>
 
           {/* Mobile Toggle */}
@@ -143,14 +143,21 @@ export default function Navbar({ onQuoteClick }: { onQuoteClick: () => void }) {
                 </svg>
                 Call 0330 043 4811
               </a>
+              <Link
+                href="/book"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 block w-full rounded-lg bg-primary-600 px-5 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-primary-600/25"
+              >
+                Book online &mdash; instant price
+              </Link>
               <button
                 onClick={() => {
                   setMobileOpen(false);
                   onQuoteClick();
                 }}
-                className="mt-2 w-full rounded-lg bg-primary-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary-600/25"
+                className="mt-2 w-full rounded-lg px-5 py-3 text-sm font-semibold text-slate-600"
               >
-                Get a Free Quote
+                Or ask for a quote
               </button>
             </div>
           </motion.div>

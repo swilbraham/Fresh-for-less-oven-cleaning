@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import AnimatedSection from "../AnimatedSection";
 
 const packages = [
@@ -163,16 +164,16 @@ export default function Pricing({ onQuoteClick }: { onQuoteClick: () => void }) 
                   </ul>
 
                   {/* CTA Button */}
-                  <button
-                    onClick={onQuoteClick}
-                    className={`mt-8 w-full rounded-xl px-6 py-3 text-sm font-semibold transition-all ${
+                  <Link
+                    href="/book"
+                    className={`mt-8 block w-full rounded-xl px-6 py-3 text-center text-sm font-semibold transition-all ${
                       pkg.popular
                         ? "bg-primary-600 text-white shadow-lg shadow-primary-500/25 hover:bg-primary-700 hover:shadow-primary-500/30"
                         : "bg-slate-900 text-white hover:bg-slate-800"
                     }`}
                   >
-                    Get a Free Quote
-                  </button>
+                    Book this online
+                  </Link>
                 </div>
               </div>
             </AnimatedSection>
@@ -184,7 +185,16 @@ export default function Pricing({ onQuoteClick }: { onQuoteClick: () => void }) 
           <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-slate-500">
             Add a hob from &pound;15, an extractor from &pound;15, a microwave from &pound;15 or a BBQ from &pound;45. Commercial &amp; end-of-tenancy quotes available on request.
           </p>
-        </AnimatedSection>
+                  <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-500">
+            Something not on the list, or a commercial kitchen?{" "}
+            <button
+              onClick={onQuoteClick}
+              className="font-semibold text-primary-600 underline underline-offset-4 transition hover:text-primary-700"
+            >
+              Ask for a quote
+            </button>
+          </p>
+</AnimatedSection>
 
         {/* Trust badges */}
         <AnimatedSection delay={0.45}>
