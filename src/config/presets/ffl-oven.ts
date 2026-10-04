@@ -52,11 +52,11 @@ export const preset: SiteConfig = {
       "end of tenancy oven clean",
       "oven cleaner near me",
     ],
-    // Left at zero until there are reviews that can be pointed at. A made-up
-    // aggregateRating is a structured-data violation and risks rich results
-    // being withdrawn for the whole domain.
-    ratingValue: "0",
-    ratingCount: "0",
+    // The real figures. A made-up aggregateRating is a structured-data
+    // violation and risks rich results being withdrawn for the whole domain,
+    // so this only ever carries a number that can be stood behind.
+    ratingValue: "4.9",
+    ratingCount: "500",
     businessType: "https://schema.org/ProfessionalService",
     privacyUpdated: "4 October 2026",
   },

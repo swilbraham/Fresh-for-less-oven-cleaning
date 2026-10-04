@@ -71,11 +71,14 @@ const jsonLd = {
     opens: "07:00",
     closes: "19:00",
   },
+  // Only ever the real figure. Google treats an unsupported aggregateRating
+  // as a structured-data violation, and the penalty is a manual action across
+  // the domain rather than the loss of stars on one page.
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.9",
     bestRating: "5",
-    ratingCount: "2000",
+    ratingCount: "500",
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
