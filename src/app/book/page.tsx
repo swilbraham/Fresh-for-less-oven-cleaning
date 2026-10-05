@@ -2,6 +2,7 @@ import SiteHeader from "@/components/marketplace/SiteHeader";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 import BookingFlow from "@/components/marketplace/BookingFlow";
+import { gbpShort } from "@/lib/marketplace/money";
 import BookingLanding from "@/components/marketplace/BookingLanding";
 import {
   getBundles,
@@ -35,6 +36,9 @@ export default async function BookPage({
     getSettings(),
   ]);
 
+  const singleOvenPence =
+    items.find((item) => item.code === "oven_single")?.unit_price_pence ?? 0;
+
   return (
     <>
       <SiteHeader />
@@ -63,6 +67,30 @@ export default async function BookPage({
               </li>
             ))}
           </ul>
+
+          {/* The one thing a price list cannot do: show what is being bought.
+              Shown whole rather than cropped to a banner, because half of a
+              before-and-after is just a photograph of a dirty oven. The figure
+              comes from the live price list, so it cannot drift from what the
+              form charges a few inches further down the page. */}
+          <figure className="mx-auto mt-10 max-w-xl overflow-hidden rounded-2xl shadow-lg ring-1 ring-white/10">
+            <img
+              src="/images/oven-before-after.jpg"
+              alt="The same single oven before and after cleaning: burnt-on carbon across the door glass and base, then clear glass and bare enamel"
+              className="w-full object-contain"
+            />
+            <figcaption className="bg-slate-800 px-5 py-3 text-center text-sm font-medium text-slate-300">
+              A real job, done in about 90 minutes.
+              {singleOvenPence > 0 && (
+                <>
+                  {" "}
+                  <span className="text-white">
+                    This one cost {gbpShort(singleOvenPence)}.
+                  </span>
+                </>
+              )}
+            </figcaption>
+          </figure>
         </div>
       </header>
 

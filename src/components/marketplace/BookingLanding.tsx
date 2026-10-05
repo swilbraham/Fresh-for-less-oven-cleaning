@@ -27,7 +27,7 @@ export default function BookingLanding({
     },
     {
       title: "Pick what needs doing",
-      body: "Carpets, ovens, cleaning, gutters, windows — your fixed price updates as you go. No survey, no home visit.",
+      body: "Ovens, hobs, extractors, ranges and Agas — your fixed price updates as you go. No survey, no home visit.",
     },
     {
       title: "Choose your slots and book",

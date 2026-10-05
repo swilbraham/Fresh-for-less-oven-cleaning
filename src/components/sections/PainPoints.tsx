@@ -79,7 +79,7 @@ export default function PainPoints() {
             />
             <figcaption className="bg-slate-900 px-5 py-3 text-center text-sm font-medium text-slate-300">
               A real job, done in about 90 minutes.{" "}
-              <span className="text-white">This one cost &pound;45.</span>
+              <span className="text-white">This one cost &pound;60.</span>
             </figcaption>
           </figure>
         </AnimatedSection>
