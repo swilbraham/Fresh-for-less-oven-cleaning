@@ -101,40 +101,44 @@ export default function BookingLanding({
         </ol>
       </section>
 
-      {/* What we do */}
-      <section>
-        <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
-          Five trades, one booking
-        </h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.code}
-              className="rounded-2xl border border-slate-200 bg-white p-6"
-            >
-              <h3 className="font-bold text-slate-900">{service.label}</h3>
-              <p className="mt-1 text-sm text-slate-600">
-                {service.blurb || service.hint}
-              </p>
-              <p className="mt-3 text-sm font-semibold text-primary-700">
-                From {gbpShort(service.minimum_charge_pence)}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* What we do — only worth a section when there is more than one trade.
+          On a single-trade site it is one card under a heading counting four
+          services that do not exist, and the price list below says it better. */}
+      {services.length > 1 && (
+        <section>
+          <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
+            {services.length} trades, one booking
+          </h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <div
+                key={service.code}
+                className="rounded-2xl border border-slate-200 bg-white p-6"
+              >
+                <h3 className="font-bold text-slate-900">{service.label}</h3>
+                <p className="mt-1 text-sm text-slate-600">
+                  {service.blurb || service.hint}
+                </p>
+                <p className="mt-3 text-sm font-semibold text-primary-700">
+                  From {gbpShort(service.minimum_charge_pence)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Prices */}
       <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl sm:text-center">
           What it costs
         </h2>
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-slate-600 sm:text-center">
           The same prices everywhere in the country — no postcode premiums.
         </p>
 
         {bundles.length > 0 && (
-          <ul className="mt-6 flex flex-wrap gap-3">
+          <ul className="mt-6 flex flex-wrap justify-center gap-3">
             {bundles.map((bundle) => (
               <li
                 key={bundle.id}
@@ -146,7 +150,11 @@ export default function BookingLanding({
           </ul>
         )}
 
-        <div className="mt-6 grid gap-8 sm:grid-cols-2">
+        <div
+          className={`mt-6 grid gap-8 ${
+            services.length > 1 ? "sm:grid-cols-2" : "mx-auto max-w-lg"
+          }`}
+        >
           {services.map((service) => {
             const list = items.filter((i) => i.service_code === service.code);
             if (list.length === 0) return null;
@@ -173,7 +181,7 @@ export default function BookingLanding({
           })}
         </div>
 
-        <p className="mt-6 text-sm text-slate-500">
+        <p className="mt-6 text-sm text-slate-500 sm:text-center">
           Offers apply automatically whenever they beat the itemised price.
         </p>
       </section>
