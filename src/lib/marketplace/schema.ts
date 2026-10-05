@@ -40,7 +40,7 @@ import {
  * so anything added to STATEMENTS or SEED needs this bumped or it will never
  * reach a database that has already booted once.
  */
-export const SCHEMA_VERSION = 2;
+export const SCHEMA_VERSION = 3;
 
 export const STATEMENTS: string[] = [
   // ---- Platform settings (single row) -------------------------------------
@@ -185,8 +185,13 @@ export const STATEMENTS: string[] = [
      outward        text NOT NULL,
      notes          text NOT NULL DEFAULT '',
      total_pence    int  NOT NULL DEFAULT 0,
+     source         text NOT NULL DEFAULT '',
      created_at     timestamptz NOT NULL DEFAULT now()
    )`,
+
+  // Which site sent the customer, when another one did. Added separately so an
+  // existing database picks it up rather than only new installs.
+  `ALTER TABLE bookings ADD COLUMN IF NOT EXISTS source text NOT NULL DEFAULT ''`,
 
   // ---- Jobs (one visit, one trade, one cleaner) ---------------------------
   // The customer columns are duplicated from `bookings` rather than joined:

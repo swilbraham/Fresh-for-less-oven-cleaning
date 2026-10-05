@@ -48,6 +48,7 @@ export default function BookingFlow({
   commissionPct,
   landing,
   initialPostcode = "",
+  source = "",
 }: {
   services: Service[];
   items: PriceItem[];
@@ -62,6 +63,8 @@ export default function BookingFlow({
    * get them past this step before they have decided anything.
    */
   initialPostcode?: string;
+  /** Where this visitor came from, recorded with the booking. */
+  source?: string;
 }) {
   const router = useRouter();
   const [step, setStep] = useState<Step>("postcode");
@@ -229,6 +232,7 @@ export default function BookingFlow({
           basket,
           slots,
           protection,
+          source,
         }),
       });
       const data = await response.json();

@@ -113,6 +113,8 @@ export type Cleaner = {
 };
 
 export type Job = {
+  /** The site that sent this customer, '' when they came here directly. */
+  source: string;
   id: number;
   ref: string;
   booking_id: number | null;
@@ -158,5 +160,7 @@ export type Booking = {
   outward: string;
   notes: string;
   total_pence: number;
+  /** The site that sent this customer, '' when they came here directly. */
+  source: string;
   created_at: string;
 };

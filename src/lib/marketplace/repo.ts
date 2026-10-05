@@ -33,6 +33,7 @@ import type {
  */
 const JOB_COLUMNS = `
   j.id, j.ref, j.booking_id, j.service_code,
+  (SELECT bk.source FROM bookings bk WHERE bk.id = j.booking_id) AS source,
   (SELECT sv.label FROM services sv WHERE sv.code = j.service_code) AS service_label,
   j.customer_name, j.customer_email, j.customer_phone,
   j.address_line, j.town, j.postcode, j.outward,
@@ -688,6 +689,8 @@ export type BookingInput = {
   notes: string;
   /** Service code -> whether the customer took that service's add-on. */
   protection?: ProtectionChoice;
+  /** Referring site, e.g. the Fresh For Less Cleaning Services front door. */
+  source?: string;
 };
 
 export type BookingResult = {
@@ -892,14 +895,15 @@ async function insertBooking(input: {
   outward: string;
   notes: string;
   totalPence: number;
+  source?: string;
 }): Promise<Booking> {
   for (let attempt = 0; attempt < 5; attempt++) {
     try {
       const row = await queryOne<{ id: number }>(
         `INSERT INTO bookings
            (ref, customer_name, customer_email, customer_phone,
-            address_line, town, postcode, outward, notes, total_pence)
-         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
+            address_line, town, postcode, outward, notes, total_pence, source)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)
          RETURNING id`,
         [
           makeRef(REF_PREFIX),
@@ -912,6 +916,7 @@ async function insertBooking(input: {
           input.outward,
           input.notes,
           input.totalPence,
+          input.source ?? "",
         ]
       );
       return (await getBooking(row!.id))!;
@@ -928,6 +933,7 @@ async function insertBooking(input: {
 const BOOKING_COLUMNS = `
   b.id, b.ref, b.customer_name, b.customer_email, b.customer_phone,
   b.address_line, b.town, b.postcode, b.outward, b.notes, b.total_pence,
+  b.source,
   to_char(b.created_at, 'YYYY-MM-DD HH24:MI') AS created_at
 `;
 

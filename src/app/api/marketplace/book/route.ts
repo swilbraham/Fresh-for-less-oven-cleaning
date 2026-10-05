@@ -108,6 +108,7 @@ export async function POST(request: Request) {
       slots,
       notes,
       protection,
+      source: text(payload.source, 40),
     });
 
     return NextResponse.json({

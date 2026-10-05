@@ -25,9 +25,9 @@ export default async function BookPage({
   // Carried over from the homepage postcode box. Validated downstream by the
   // slots endpoint, so anything unusable simply leaves the customer on step
   // one rather than failing.
-  searchParams: Promise<{ postcode?: string }>;
+  searchParams: Promise<{ postcode?: string; from?: string }>;
 }) {
-  const { postcode = "" } = await searchParams;
+  const { postcode = "", from = "" } = await searchParams;
   const [services, items, bundles, settings] = await Promise.all([
     getServices(true),
     getPriceItems(true),
@@ -69,6 +69,7 @@ export default async function BookPage({
       <div className="pt-10">
         <BookingFlow
           initialPostcode={postcode}
+          source={from.slice(0, 40)}
           services={services}
           items={items}
           bundles={bundles}
