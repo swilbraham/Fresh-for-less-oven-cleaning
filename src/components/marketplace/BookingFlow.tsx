@@ -156,7 +156,12 @@ export default function BookingFlow({
       }
       setCoverage({ outward: data.outward, services: data.services });
       setWaitlisted(false);
-      setStep("services");
+      if (services.length === 1) {
+        setChosenServices([services[0].code]);
+        setStep("items");
+      } else {
+        setStep("services");
+      }
     } catch {
       setError("We couldn't check that postcode. Please try again.");
     } finally {
@@ -299,9 +304,19 @@ export default function BookingFlow({
     .filter((s) => !availabilityFor(s.service_code)?.covered)
     .map((s) => s.service_label);
 
+  /**
+   * One trade means the services step is a single card the customer has to
+   * click to carry on — a question with one answer. On those sites the service
+   * is chosen for them and the step disappears entirely; a site with several
+   * trades is unaffected.
+   */
+  const singleService = services.length === 1;
+
   const steps: { key: Step; label: string }[] = [
     { key: "postcode", label: "Postcode" },
-    { key: "services", label: "Services" },
+    ...(singleService
+      ? []
+      : [{ key: "services" as Step, label: "Services" }]),
     { key: "items", label: "What needs doing" },
     { key: "slot", label: "Dates" },
     { key: "details", label: "Your details" },
@@ -554,6 +569,31 @@ export default function BookingFlow({
       {/* Step 3 — items, one section per chosen trade */}
       {step === "items" && (
         <div className="space-y-6">
+          {/* With the services step skipped, this is where the customer first
+              learns whether anyone covers them — the answer they came for. */}
+          {singleService && coverage && (
+            <div
+              className={`rounded-2xl border px-4 py-3 text-sm ${
+                anyCovered
+                  ? "border-accent-200 bg-accent-50 text-accent-900"
+                  : "border-amber-200 bg-amber-50 text-amber-900"
+              }`}
+            >
+              {anyCovered ? (
+                <>
+                  We cover <strong>{coverage.outward}</strong> — tick everything
+                  you want cleaning and your price appears as you go.
+                </>
+              ) : (
+                <>
+                  Nobody is covering <strong>{coverage.outward}</strong> online
+                  just yet. Tick what you need anyway and we&apos;ll confirm
+                  within 24 hours.
+                </>
+              )}
+            </div>
+          )}
+
           {offers.length > 0 && (
             <ul className="space-y-2">
               {offers.map((offer) => (
@@ -744,7 +784,7 @@ export default function BookingFlow({
           <div className="flex gap-3">
             <button
               type="button"
-              onClick={() => setStep("services")}
+              onClick={() => setStep(singleService ? "postcode" : "services")}
               className="rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-600"
             >
               Back

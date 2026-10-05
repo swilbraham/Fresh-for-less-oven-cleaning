@@ -164,7 +164,7 @@ export default function Hero() {
                 // score they have no way to verify, and these three answer the
                 // questions that actually stop someone booking: what will it
                 // cost, how long are they in my kitchen, and can I cook tonight.
-                { value: "From \u00a345", label: "Single Oven" },
+                { value: "From \u00a360", label: "Single Oven" },
                 { value: "90 min", label: "Typical Visit" },
                 { value: "Same day", label: "Use It Again" },
               ].map((stat) => (

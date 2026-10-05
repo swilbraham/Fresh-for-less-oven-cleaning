@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "How much does it cost?",
     answer:
-      "Our prices start from £45 for a single oven. Check our pricing section for full details, or request a free no-obligation quote tailored to your appliances.",
+      "Our prices start from £60 for a single oven. Check our pricing section for full details, or request a free no-obligation quote tailored to your appliances.",
   },
   {
     question: "What areas do you cover?",

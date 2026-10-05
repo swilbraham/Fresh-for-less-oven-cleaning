@@ -105,7 +105,7 @@ export const preset: SiteConfig = {
         "Ovens, hobs, extractors, ranges and Agas cleaned by hand with non-caustic products. See your fixed price in under a minute and pick a slot that suits you.",
       primaryCta: "Get Your Fixed Price",
       stats: [
-        { value: "£45", label: "Single Oven" },
+        { value: "£60", label: "Single Oven" },
         { value: "90 min", label: "Typical Visit" },
         { value: "Same day", label: "Use It Again" },
       ],
@@ -372,7 +372,7 @@ export const preset: SiteConfig = {
         {
           question: "How much does it cost?",
           answer:
-            "A single oven is £45, a double oven £65, and range cookers start at £95. Enter your postcode on the booking page and the exact total for whatever you tick appears straight away.",
+            "A single oven is £60, a double oven £65, and range cookers start at £95. Enter your postcode on the booking page and the exact total for whatever you tick appears straight away.",
         },
         {
           question: "What areas do you cover?",
@@ -436,7 +436,7 @@ export const preset: SiteConfig = {
       intro:
         "No home visit, no haggling, nothing to pay upfront. Enter your postcode, tick what needs cleaning, and we will confirm a vetted local oven cleaner.",
       points: [
-        "Single oven from £45",
+        "Single oven from £60",
         "Insured & vetted oven cleaners",
         "Use the oven the same day",
       ],
@@ -466,7 +466,7 @@ export const preset: SiteConfig = {
           "Dip-tank cleaning that takes the racks, trays and door glass back to new, with non-caustic products so the oven can be used the same day.",
         // A single oven is the smallest job worth sending a van out for, so it
         // is also the floor: no basket can come in under it.
-        minimumChargePence: 4500,
+        minimumChargePence: 6000,
         protectionPct: 0,
         protectionLabel: "",
         protectionHint: "",
@@ -475,7 +475,7 @@ export const preset: SiteConfig = {
     ],
 
     items: [
-      { code: "oven_single", serviceCode: "oven", label: "Single oven", hint: "One cavity, racks, trays and door glass", kind: "Ovens & ranges", unitPricePence: 4500, maxQty: 4, sort: 10 },
+      { code: "oven_single", serviceCode: "oven", label: "Single oven", hint: "One cavity, racks, trays and door glass", kind: "Ovens & ranges", unitPricePence: 6000, maxQty: 4, sort: 10 },
       { code: "oven_double", serviceCode: "oven", label: "Double oven", hint: "Two cavities, racks, trays and door glass", kind: "Ovens & ranges", unitPricePence: 6500, maxQty: 4, sort: 20 },
       { code: "oven_range_90", serviceCode: "oven", label: "Range cooker (90cm)", hint: "All cavities, grill and hob included", kind: "Ovens & ranges", unitPricePence: 9500, maxQty: 2, sort: 30 },
       { code: "oven_range_100", serviceCode: "oven", label: "Range cooker (100cm+)", hint: "Twin doors, grill and full hob", kind: "Ovens & ranges", unitPricePence: 11000, maxQty: 2, sort: 40 },
