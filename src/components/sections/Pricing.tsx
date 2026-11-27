@@ -20,7 +20,7 @@ const packages = [
   },
   {
     name: "Double Oven",
-    price: 65,
+    price: 80,
     subtitle: "per clean",
     description: "Our most popular choice",
     popular: true,
@@ -35,7 +35,7 @@ const packages = [
   },
   {
     name: "Range Cooker",
-    price: 95,
+    price: 105,
     subtitle: "per clean",
     description: "Aga, Rayburn, Stoves & more",
     popular: false,
@@ -183,7 +183,7 @@ export default function Pricing() {
         {/* Additional rooms note */}
         <AnimatedSection delay={0.35}>
           <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-slate-500">
-            Add a hob from &pound;15, an extractor from &pound;15, a microwave from &pound;15 or a BBQ from &pound;45. Commercial &amp; end-of-tenancy quotes available on request.
+            Add a hob from &pound;18, an extractor from &pound;20, a microwave from &pound;20 or a BBQ from &pound;40. Commercial &amp; end-of-tenancy quotes available on request.
           </p>
                   <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-500">
             Something not on the list, or a commercial kitchen?{" "}
