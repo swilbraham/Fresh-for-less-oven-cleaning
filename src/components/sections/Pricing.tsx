@@ -6,7 +6,7 @@ import AnimatedSection from "../AnimatedSection";
 const packages = [
   {
     name: "Single Oven",
-    price: 45,
+    price: 60,
     subtitle: "per clean",
     description: "Cavity, door, glass, racks & trays",
     popular: false,

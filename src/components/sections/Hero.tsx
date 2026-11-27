@@ -119,7 +119,7 @@ export default function Hero() {
                   </button>
                 </div>
                 <p className="text-xs text-slate-400">
-                  Fixed price in under a minute &middot; single oven from &pound;45 &middot; nothing to pay now
+                  Fixed price in under a minute &middot; single oven from &pound;60 &middot; nothing to pay now
                 </p>
               </form>
               <a
